@@ -13,7 +13,7 @@ const crearAdmin = async () => {
       edad: 30,
       telefono: "0999999999",
       correo: "tifany.com.es@gmail.com",
-      username: "admin",
+      username: "VIPAN",
       password: "tifany123", // ⚠️ Se encripta en el modelo (pre-save)
       role: "admin",
       verificado: true,
@@ -33,6 +33,21 @@ const crearAdmin = async () => {
       existeAdmin.telefono = datosAdmin.telefono;
       existeAdmin.role = "admin";
       existeAdmin.verificado = true;
+      console.log("🆕 Admin ya existe, actualizando datos...");
+
+      existeAdmin.nombre = datosAdmin.nombre;
+      existeAdmin.apellido = datosAdmin.apellido;
+      existeAdmin.edad = datosAdmin.edad;
+      existeAdmin.telefono = datosAdmin.telefono;
+
+      // ✅ ACTUALIZAR CREDENCIALES
+      existeAdmin.correo = datosAdmin.correo;
+      existeAdmin.username = datosAdmin.username;
+      existeAdmin.password = datosAdmin.password;
+
+      existeAdmin.role = "admin";
+      existeAdmin.verificado = true;
+      existeAdmin.fotoPerfil = datosAdmin.fotoPerfil;
 
       await existeAdmin.save();
 

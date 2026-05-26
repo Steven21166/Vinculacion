@@ -49,35 +49,4 @@ app.get("/debug/login", async (req, res) => {
   }
 });
 
-/*
-
-
-// Rutas de API
-
-app.use('/api/categorias', require('./routes/categoria'));
-
-// ✅ Nueva ruta para pedidos
-app.use('/api/pedidos', require('./routes/pedido'));
-
-app.use("/api/aside", require("./routes/aside"));
-
-
-// Middleware de manejo de errores (incluye errores de multer)
-app.use((err, req, res, next) => {
-  if (err instanceof multer.MulterError) {
-    // Errores propios de multer (como límite de tamaño)
-    return res.status(400).json({ error: `Error de carga: ${err.message}` });
-  } else if (err) {
-    // Otros errores (por ejemplo, archivo con tipo inválido)
-    return res.status(400).json({ error: err.message || 'Error inesperado' });
-  }
-
-  next();
-});
-
-
-
-app.use('/api/scratchcard', require('./routes/scratchCard'));
-*/
-
 module.exports = app;
