@@ -1,0 +1,83 @@
+require("dotenv").config(); // Carga variables del .env
+
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const Usuario = require("./models/Usuario");
+const bcrypt = require("bcryptjs");
+const multer = require("multer");
+const servicioRoutes = require("./routes/servicio");
+
+const app = express();
+
+// Configuración
+app.set("port", process.env.PORT || 4000);
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
+app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
+
+app.get("/", (req, res) => {
+  res.send("bienvenido a vinculacion");
+});
+
+// ✅ Solo servir imágenes subidas por el admin en public/uploads
+app.use(express.static(path.join(__dirname, "..", "public")));
+
+app.use("/", require("./routes/auth"));
+app.use("/usuarios", require("./routes/usuario"));
+app.use("/productos", require("./routes/producto"));
+app.use("/categorias", require("./routes/categoria"));
+app.use("/servicios", servicioRoutes);
+app.use("/temporadas", require("./routes/temporada"));
+
+// ✅ Ruta de prueba de login con admin/admin123
+app.get("/debug/login", async (req, res) => {
+  try {
+    const user = await Usuario.findOne({ username: "admin" });
+    if (!user) return res.send("❌ No se encontró el usuario admin");
+
+    const match = await bcrypt.compare("admin123", user.password);
+    if (!match) return res.send("❌ La contraseña no coincide");
+
+    res.send("✅ Login exitoso con admin/admin123");
+  } catch (err) {
+    console.error("🔥 Error:", err.message);
+    res.status(500).send("❌ Error del servidor");
+  }
+});
+
+/*
+
+
+// Rutas de API
+
+app.use('/api/categorias', require('./routes/categoria'));
+
+// ✅ Nueva ruta para pedidos
+app.use('/api/pedidos', require('./routes/pedido'));
+
+app.use("/api/aside", require("./routes/aside"));
+
+
+// Middleware de manejo de errores (incluye errores de multer)
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    // Errores propios de multer (como límite de tamaño)
+    return res.status(400).json({ error: `Error de carga: ${err.message}` });
+  } else if (err) {
+    // Otros errores (por ejemplo, archivo con tipo inválido)
+    return res.status(400).json({ error: err.message || 'Error inesperado' });
+  }
+
+  next();
+});
+
+
+
+app.use('/api/scratchcard', require('./routes/scratchCard'));
+*/
+
+module.exports = app;

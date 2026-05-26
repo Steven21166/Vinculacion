@@ -1,0 +1,55 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b1f0b;
+  padding: 15px 30px;
+  color: #f2a007;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.nav-logo h2 {
+  margin: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links li:hover {
+  color: #f2a007;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.nav-links li a:hover {
+  color: #f2a007;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer; /* 🔥 clave */
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.logo-container:hover {
+  opacity: 0.8;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}

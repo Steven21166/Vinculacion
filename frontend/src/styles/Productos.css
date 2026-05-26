@@ -1,0 +1,185 @@
+.productos-container {
+  background: rgba(236, 219, 143, 0.795);
+  padding: 25px;
+  margin: 20px 10px;
+  border-radius: 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.productos-container h2 {
+  margin-bottom: 20px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.producto-card {
+  border: 1px solid #eee;
+  padding: 12px;
+  text-align: center;
+  border-radius: 16px;
+  background: #fff;
+  transition: 0.3s ease;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.oferta {
+  color: red;
+  font-weight: bold;
+}
+
+/* 🔥 FONDO OSCURO */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 🔥 CAJA DEL MODAL */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  max-width: 90%;
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* 🔥 separación entre botones */
+  margin-top: 10px;
+}
+
+.admin-buttons button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+/* ✏️ EDITAR */
+.admin-buttons button:first-child {
+  background-color: #4CAF50; /* verde */
+  color: white;
+}
+
+.admin-buttons button:first-child:hover {
+  background-color: #45a049;
+}
+
+/* 🗑️ ELIMINAR */
+.admin-buttons button:last-child {
+  background-color: #e53935; /* rojo */
+  color: white;
+}
+
+.admin-buttons button:last-child:hover {
+  background-color: #c62828;
+}
+
+.admin-buttons button {
+  width: 40px;
+  height: 40px;
+}
+
+.admin-buttons button:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.admin-buttons button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.producto-card:target {
+  border: 3px solid #ff9800;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+  transition: 0.3s;
+}
+
+/* 🔥 animación de enfoque */
+@keyframes highlightProduct {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.08);
+  }
+  60% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* clase que activa la animación */
+.highlight {
+  animation: highlightProduct 0.6s ease;
+  border: 3px solid #ff9800;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+}
+
+.botones-contacto {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-whatsapp {
+  flex: 1;
+  background: #25d366;
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-instagram {
+  flex: 1;
+  background: #e1306c;
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+}
+
+.btn-instagram:hover {
+  background: #c72b5c;
+}

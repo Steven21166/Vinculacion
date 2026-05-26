@@ -1,0 +1,105 @@
+.footer {
+  background-color: #3b1f0b;
+  color: #f2a007;
+  margin-top: auto;
+}
+
+/* Contenedor principal */
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 40px;
+  gap: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Columnas */
+.footer-section {
+  min-width: 180px;
+  text-align: center;
+}
+
+/* Logo */
+.footer-logo {
+  width: 120px;
+}
+
+/* Títulos */
+.footer-section h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #f2a007;
+}
+
+/* Texto */
+.footer-section p,
+.footer-section li {
+  font-size: 15px;
+  margin-bottom: 6px;
+  list-style: none;
+  color: #f2a007;
+}
+
+/* Lista */
+.footer-section ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* Redes */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.socials svg {
+  font-size: 30px;
+  color: #f2a007;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.socials svg:hover {
+  color: #000000;
+}
+
+/* Barra final */
+.footer-bottom {
+  background: #3b1f0b;
+  color: #f2a007;
+
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: stretch; /* centra vertical */
+
+  text-align: center;
+  min-height: 0px; /* altura fija bonita */
+
+  padding: 0 20px; /* espacio lados */
+  margin: 0;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 8px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #f2a007;
+  transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #ffffff;
+}

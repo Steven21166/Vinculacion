@@ -1,0 +1,47 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fceac5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Layout principal */
+.main-layout {
+  display: flex;
+  flex: 1;
+}
+
+/* Contenido */
+.contenido {
+  flex: 1;
+  padding: 10px;
+  background-color: #f5f5f500;
+}
+
+/* Aside */
+.aside {
+  width: 250px;
+  min-height: 300px;
+  padding: 20px;
+  background-color: #f8e6b0;
+
+  margin: 20px; /* separación arriba-abajo-lados */
+  border-radius: 18px; /* redondeado */
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  height: fit-content; /* no se estira hasta abajo */
+  position: sticky;
+  top: 20px;
+}

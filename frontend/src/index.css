@@ -1,0 +1,38 @@
+/* Ocultar barra superior de Google */
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Evitar espacio arriba */
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+/* Ocultar logo y textos */
+.goog-logo-link,
+.goog-te-gadget span,
+.goog-te-gadget {
+  display: none !important;
+}
+
+/* Ocultar traductor original */
+#google_translate_element {
+  display: none;
+}
+
+/* Ocultar tooltip de traducción */
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+/* Evitar resaltado azul */
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,161 @@
+.overlay-animacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.774);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.contenedor-animacion {
+  background: rgba(151, 151, 151, 0.92);
+
+  width: 430px;
+
+  padding: 30px 25px;
+
+  border-radius: 25px;
+
+  text-align: center;
+
+  animation: aparecer 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+
+  box-sizing: border-box;
+}
+
+.video-alerta {
+  width: 180px;
+
+  border-radius: 15px;
+
+  display: block;
+}
+
+/* 🔥 TEXTO */
+
+.contenedor-animacion h2 {
+  margin: 0;
+
+  font-size: 34px;
+
+  line-height: 1.1;
+
+  color: #0a0a0a;
+
+  text-align: center;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🔥 BOTONES */
+
+.contenedor-botones {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.contenedor-animacion .btn-cancelar,
+.contenedor-animacion .btn-eliminar {
+  border: none;
+  outline: none;
+
+  width: 140px;
+  height: 50px;
+
+  border-radius: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: bold;
+  font-family: inherit;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  position: relative;
+  bottom: 0;
+}
+
+.btn-cancelar span,
+.btn-eliminar span {
+  display: flex;
+  align-items: center;
+}
+
+/* COLORES */
+
+.contenedor-animacion .btn-cancelar {
+  background: #8c8c8c;
+}
+
+.contenedor-animacion .btn-eliminar {
+  background: crimson;
+}
+
+/* HOVER */
+
+.contenedor-animacion .btn-cancelar:hover {
+  background: #6f6f6f; /* gris más oscuro */
+}
+
+.contenedor-animacion .btn-eliminar:hover {
+  background: #a3002a; /* rojo más oscuro */
+}
+
+.contenedor-animacion .btn-cancelar:hover,
+.contenedor-animacion .btn-eliminar:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* 🔥 RESPONSIVE */
+
+@media (max-width: 500px) {
+  .contenedor-animacion {
+    width: 90%;
+    padding: 25px 18px;
+  }
+
+  .contenedor-animacion h2 {
+    font-size: 42px;
+  }
+
+  .contenedor-botones {
+    flex-direction: column;
+  }
+
+  .btn-cancelar,
+  .btn-eliminar {
+    width: 100%;
+  }
+}
