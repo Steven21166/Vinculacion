@@ -53,3 +53,56 @@
   height: 40px;
   object-fit: contain;
 }
+
+.traductor-li {
+  display: flex;
+  align-items: center;
+}
+
+.traductor-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Oculta el traductor original */
+#google_translate_element {
+  display: none;
+}
+
+.traductor-container button {
+  background: #c28b37;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.traductor-container button:hover {
+  transform: scale(1.05);
+  background: #e0a84a;
+}
+
+/* Oculta barra fea de Google */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  font-size: 0px !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+}

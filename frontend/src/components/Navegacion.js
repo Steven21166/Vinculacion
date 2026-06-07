@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../styles/Navegacion.css";
 import Animacion from "../components/Animacion";
+import GoogleTranslate from "./GoogleTranslate";
 
 function Navegacion() {
   const token = localStorage.getItem("token");
@@ -85,6 +86,10 @@ function Navegacion() {
             </li>
           </>
         )}
+
+        <li className="traductor-li">
+          <GoogleTranslate />
+        </li>
       </ul>
       {mostrarAnimacion && (
         <Animacion video={video} cerrar={() => setMostrarAnimacion(false)} />
