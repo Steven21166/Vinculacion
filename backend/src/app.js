@@ -36,13 +36,13 @@ app.use("/temporadas", require("./routes/temporada"));
 // ✅ Ruta de prueba de login con admin/admin123
 app.get("/debug/login", async (req, res) => {
   try {
-    const user = await Usuario.findOne({ username: "admin" });
+    const user = await Usuario.findOne({ username: "VIPAN" });
     if (!user) return res.send("❌ No se encontró el usuario admin");
 
-    const match = await bcrypt.compare("admin123", user.password);
+    const match = await bcrypt.compare("tifany123", user.password);
     if (!match) return res.send("❌ La contraseña no coincide");
 
-    res.send("✅ Login exitoso con admin/admin123");
+    res.send("✅ Login exitoso con VIPAN/tifany123");
   } catch (err) {
     console.error("🔥 Error:", err.message);
     res.status(500).send("❌ Error del servidor");
