@@ -23,7 +23,7 @@ function Productos() {
   const [productoEliminar, setProductoEliminar] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/productos")
+    fetch("https://vipan-backend.onrender.com/productos")
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error(err));
@@ -58,7 +58,7 @@ function Productos() {
 
     try {
       const res = await fetch(
-        `http://localhost:4000/productos/${productoEliminar}`,
+        `https://vipan-backend.onrender.com/productos/${productoEliminar}`,
         {
           method: "DELETE",
           headers: {
@@ -93,7 +93,7 @@ function Productos() {
       💲 Precio: ${producto.precioUnidad || "Consultar"}
 
       📸 Imagen:
-      http://localhost:4000${producto.imagen}`;
+      https://vipan-backend.onrender.com${producto.imagen}`;
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
@@ -107,7 +107,7 @@ function Productos() {
       💲 Precio: ${producto.precioUnidad || "Consultar"}
 
       📸 Imagen:
-      http://localhost:4000${producto.imagen}`;
+      https://vipan-backend.onrender.com${producto.imagen}`;
 
     navigator.clipboard.writeText(mensaje);
 
@@ -125,7 +125,10 @@ function Productos() {
           )
           .map((p) => (
             <div key={p._id} id={`producto-${p._id}`} className="producto-card">
-              <img src={`http://localhost:4000${p.imagen}`} alt={p.nombre} />
+              <img
+                src={`https://vipan-backend.onrender.com${p.imagen}`}
+                alt={p.nombre}
+              />
 
               <h3>{p.nombre}</h3>
 

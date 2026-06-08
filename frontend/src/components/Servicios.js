@@ -25,7 +25,7 @@ function Servicios() {
   const [servicioEliminar, setServicioEliminar] = useState(null);
 
   const obtenerServicios = async () => {
-    const res = await fetch("http://localhost:4000/servicios");
+    const res = await fetch("https://vipan-backend.onrender.com/servicios");
 
     const data = await res.json();
 
@@ -48,11 +48,11 @@ function Servicios() {
     }
 
     try {
-      let url = "http://localhost:4000/servicios";
+      let url = "https://vipan-backend.onrender.com/servicios";
       let method = "POST";
 
       if (editando) {
-        url = `http://localhost:4000/servicios/${idEditar}`;
+        url = `https://vipan-backend.onrender.com/servicios/${idEditar}`;
         method = "PUT";
       }
 
@@ -91,9 +91,12 @@ function Servicios() {
     if (!servicioEliminar) return;
 
     try {
-      await fetch(`http://localhost:4000/servicios/${servicioEliminar}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://vipan-backend.onrender.com/servicios/${servicioEliminar}`,
+        {
+          method: "DELETE",
+        },
+      );
 
       obtenerServicios();
 
@@ -112,7 +115,7 @@ function Servicios() {
 🎥 ${servicio.titulo}
 
 📎 Archivo:
-http://localhost:4000${servicio.archivo}`;
+https://vipan-backend.onrender.com${servicio.archivo}`;
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
@@ -125,7 +128,7 @@ http://localhost:4000${servicio.archivo}`;
 🎥 ${servicio.titulo}
 
 📎 Archivo:
-http://localhost:4000${servicio.archivo}`;
+https://vipan-backend.onrender.com${servicio.archivo}`;
 
     navigator.clipboard.writeText(mensaje);
 
@@ -161,11 +164,13 @@ http://localhost:4000${servicio.archivo}`;
 
               {archivoActual.includes(".mp4") ? (
                 <video controls className="preview-media">
-                  <source src={`http://localhost:4000${archivoActual}`} />
+                  <source
+                    src={`https://vipan-backend.onrender.com${archivoActual}`}
+                  />
                 </video>
               ) : (
                 <img
-                  src={`http://localhost:4000${archivoActual}`}
+                  src={`https://vipan-backend.onrender.com${archivoActual}`}
                   alt=""
                   className="preview-media"
                 />
@@ -217,11 +222,13 @@ http://localhost:4000${servicio.archivo}`;
                     controls
                     className="media-servicio"
                   >
-                    <source src={`http://localhost:4000${s.archivo}`} />
+                    <source
+                      src={`https://vipan-backend.onrender.com${s.archivo}`}
+                    />
                   </video>
                 ) : (
                   <img
-                    src={`http://localhost:4000${s.archivo}`}
+                    src={`https://vipan-backend.onrender.com${s.archivo}`}
                     alt={s.titulo}
                     className="media-servicio"
                   />

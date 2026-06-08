@@ -37,7 +37,7 @@ function Temporada() {
   // 🔥 OBTENER TEMPORADAS
   const obtenerTemporadas = async () => {
     try {
-      const res = await fetch("http://localhost:4000/temporadas");
+      const res = await fetch("https://vipan-backend.onrender.com/temporadas");
 
       const data = await res.json();
 
@@ -87,12 +87,12 @@ function Temporada() {
     }
 
     try {
-      let url = "http://localhost:4000/temporadas";
+      let url = "https://vipan-backend.onrender.com/temporadas";
 
       let method = "POST";
 
       if (editando) {
-        url = `http://localhost:4000/temporadas/${idEditar}`;
+        url = `https://vipan-backend.onrender.com/temporadas/${idEditar}`;
 
         method = "PUT";
       }
@@ -148,9 +148,12 @@ function Temporada() {
     if (!temporadaEliminar) return;
 
     try {
-      await fetch(`http://localhost:4000/temporadas/${temporadaEliminar}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://vipan-backend.onrender.com/temporadas/${temporadaEliminar}`,
+        {
+          method: "DELETE",
+        },
+      );
 
       setMostrarEliminar(false);
 
@@ -198,7 +201,7 @@ function Temporada() {
                 <p>Imagen actual:</p>
 
                 <img
-                  src={`http://localhost:4000${imagenActual}`}
+                  src={`https://vipan-backend.onrender.com${imagenActual}`}
                   alt=""
                   className="preview-temporada"
                 />
@@ -242,7 +245,10 @@ function Temporada() {
                 id={`temporada-${t._id}`}
                 className="temporada-card"
               >
-                <img src={`http://localhost:4000${t.imagen}`} alt={t.nombre} />
+                <img
+                  src={`https://vipan-backend.onrender.com${t.imagen}`}
+                  alt={t.nombre}
+                />
 
                 <div className="temporada-info">
                   <h3>{t.nombre}</h3>

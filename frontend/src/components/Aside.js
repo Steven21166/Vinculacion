@@ -9,7 +9,7 @@ function Aside() {
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:4000/productos/ofertas")
+    fetch("https://vipan-backend.onrender.com/productos/ofertas")
       .then((res) => res.json())
       .then((data) => setOfertas(Array.isArray(data) ? data : []))
       .catch((err) => console.error(err));
@@ -44,7 +44,7 @@ function Aside() {
           style={{ cursor: "pointer" }}
         >
           <img
-            src={`http://localhost:4000${producto.imagen}`}
+            src={`https://vipan-backend.onrender.com${producto.imagen}`}
             alt={producto.nombre}
           />
           <p>{producto.nombre}</p>

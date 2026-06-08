@@ -15,7 +15,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
   const obtenerCategorias = async () => {
     try {
-      const res = await fetch("http://localhost:4000/categorias");
+      const res = await fetch("https://vipan-backend.onrender.com/categorias");
       const data = await res.json();
       setCategorias(data);
     } catch (error) {
@@ -49,7 +49,9 @@ function AgregarProducto({ productoEditar, cerrar }) {
       });
 
       if (productoEditar.imagen) {
-        setImagenPreview(`http://localhost:4000${productoEditar.imagen}`);
+        setImagenPreview(
+          `https://vipan-backend.onrender.com${productoEditar.imagen}`,
+        );
       }
     }
   }, [productoEditar]);
@@ -80,10 +82,13 @@ function AgregarProducto({ productoEditar, cerrar }) {
     formData.append("imagen", file);
 
     try {
-      const res = await fetch("http://localhost:4000/productos/upload-image", {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch(
+        "https://vipan-backend.onrender.com/productos/upload-image",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       const data = await res.json();
 
@@ -105,8 +110,8 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
     try {
       const url = productoEditar
-        ? `http://localhost:4000/productos/${productoEditar._id}`
-        : "http://localhost:4000/productos";
+        ? `https://vipan-backend.onrender.com/productos/${productoEditar._id}`
+        : "https://vipan-backend.onrender.com/productos";
 
       const method = productoEditar ? "PUT" : "POST";
 
@@ -150,7 +155,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
     formData.append("nombre", nuevaCategoria);
     formData.append("imagen", imagenCategoria);
 
-    await fetch("http://localhost:4000/categorias", {
+    await fetch("https://vipan-backend.onrender.com/categorias", {
       method: "POST",
       body: formData, // 👈 CLAVE
     });
@@ -170,10 +175,13 @@ function AgregarProducto({ productoEditar, cerrar }) {
       formData.append("imagen", imagenEditar);
     }
 
-    const res = await fetch(`http://localhost:4000/categorias/${id}`, {
-      method: "PUT",
-      body: formData,
-    });
+    const res = await fetch(
+      `https://vipan-backend.onrender.com/categorias/${id}`,
+      {
+        method: "PUT",
+        body: formData,
+      },
+    );
 
     if (!res.ok) return;
 
@@ -197,9 +205,12 @@ function AgregarProducto({ productoEditar, cerrar }) {
   const eliminarCategoria = async () => {
     if (!categoriaEliminar) return;
 
-    await fetch(`http://localhost:4000/categorias/${categoriaEliminar}`, {
-      method: "DELETE",
-    });
+    await fetch(
+      `https://vipan-backend.onrender.com/categorias/${categoriaEliminar}`,
+      {
+        method: "DELETE",
+      },
+    );
 
     obtenerCategorias();
 
@@ -379,7 +390,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
             {/* 🔥 preview actual */}
             {categoriaSeleccionada?.imagen && !imagenEditar && (
               <img
-                src={`http://localhost:4000/uploads/${categoriaSeleccionada.imagen}`}
+                src={`https://vipan-backend.onrender.com/uploads/${categoriaSeleccionada.imagen}`}
                 alt="Vista previa"
                 width="100"
               />

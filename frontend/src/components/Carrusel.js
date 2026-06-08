@@ -21,13 +21,13 @@ function Carrusel() {
   ];
 
   useEffect(() => {
-    fetch("http://localhost:4000/categorias")
+    fetch("https://vipan-backend.onrender.com/categorias")
       .then((res) => res.json())
       .then((data) => setCategorias(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/temporadas")
+    fetch("https://vipan-backend.onrender.com/temporadas")
       .then((res) => res.json())
       .then((data) => setTemporadas(data));
   }, []);
@@ -72,8 +72,8 @@ function Carrusel() {
         <img
           src={
             item.tipo === "categoria"
-              ? `http://localhost:4000/uploads/${item.imagen}`
-              : `http://localhost:4000${item.imagen}`
+              ? `https://vipan-backend.onrender.com/uploads/${item.imagen}`
+              : `https://vipan-backend.onrender.com${item.imagen}`
           }
           alt={item.nombre}
         />

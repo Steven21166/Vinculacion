@@ -9,7 +9,7 @@ function Inicio() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:4000/categorias")
+    fetch("https://vipan-backend.onrender.com/categorias")
       .then((res) => res.json())
       .then((data) => setCategorias(data));
   }, []);
@@ -19,7 +19,7 @@ function Inicio() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4000/temporadas")
+    fetch("https://vipan-backend.onrender.com/temporadas")
       .then((res) => res.json())
       .then((data) => setTemporadas(data));
   }, []);
@@ -41,7 +41,7 @@ function Inicio() {
               onClick={() => irACategoria(cat.nombre)}
             >
               <img
-                src={`http://localhost:4000/uploads/${cat.imagen}`}
+                src={`https://vipan-backend.onrender.com/uploads/${cat.imagen}`}
                 alt={cat.nombre}
               />
 
@@ -61,7 +61,7 @@ function Inicio() {
                 key={temp._id}
                 className="temporada-banner"
                 style={{
-                  backgroundImage: `url(http://localhost:4000${temp.imagen})`,
+                  backgroundImage: `url(https://vipan-backend.onrender.com${temp.imagen})`,
                 }}
               >
                 <div className="temporada-overlay">

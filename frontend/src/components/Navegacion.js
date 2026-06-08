@@ -25,7 +25,7 @@ function Navegacion() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4000/temporadas")
+    fetch("https://vipan-backend.onrender.com/temporadas")
       .then((res) => res.json())
       .then((data) => setTemporadas(data))
       .catch((err) => console.log(err));
