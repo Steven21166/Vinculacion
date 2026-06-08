@@ -1,3 +1,6 @@
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
+
 const multer = require("multer");
 const path = require("path");
 
@@ -5,14 +8,11 @@ const path = require("path");
 const EXTENSIONES_PERMITIDAS = /jpeg|jpg|png|gif/;
 
 // Configuración de almacenamiento
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../../public/uploads"));
-  },
-  filename: function (req, file, cb) {
-    const nombreSeguro =
-      Date.now() + "-" + file.originalname.replace(/\s+/g, "-");
-    cb(null, nombreSeguro);
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "productos",
+    allowed_formats: ["jpg", "jpeg", "png", "gif"],
   },
 });
 
