@@ -5,7 +5,7 @@ const router = express.Router();
 const { verificarToken } = require("../middlewares/auth");
 const { uploadPerfiles } = require("../middlewares/upload");
 
-const usuarioController = require("../controller/usuariocontroller");
+const usuarioController = require("../controller/usuarioController");
 
 router.get("/:id", verificarToken, usuarioController.getUsuario);
 
