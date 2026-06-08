@@ -8,7 +8,7 @@ const {
   deleteProduct,
   updateProduct,
   getOfertas,
-} = require("../controller/productocontroller");
+} = require("../controller/productoController");
 
 const { verificarToken, verificarAdmin } = require("../middlewares/auth");
 const { upload } = require("../middlewares/upload");
