@@ -200,11 +200,7 @@ function Temporada() {
               <div className="preview-edicion-temporada">
                 <p>Imagen actual:</p>
 
-                <img
-                  src={`https://vipan-backend.onrender.com${imagenActual}`}
-                  alt=""
-                  className="preview-temporada"
-                />
+                <img src={imagenActual} alt="" className="preview-temporada" />
               </div>
             )}
 
@@ -220,8 +216,6 @@ function Temporada() {
             esAdmin ? (
               <div key={t._id} className="fila-admin-temporada">
                 <span>{t.nombre}</span>
-
-                <span>{t.imagen.split("/").pop()}</span>
 
                 <div className="acciones-admin">
                   <button
@@ -245,10 +239,7 @@ function Temporada() {
                 id={`temporada-${t._id}`}
                 className="temporada-card"
               >
-                <img
-                  src={`https://vipan-backend.onrender.com${t.imagen}`}
-                  alt={t.nombre}
-                />
+                <img src={t.imagen} alt={t.nombre} />
 
                 <div className="temporada-info">
                   <h3>{t.nombre}</h3>

@@ -69,14 +69,7 @@ function Carrusel() {
       </button>
 
       <div className="slide" onClick={() => handleClick(item)}>
-        <img
-          src={
-            item.tipo === "categoria"
-              ? `https://vipan-backend.onrender.com/uploads/${item.imagen}`
-              : `https://vipan-backend.onrender.com${item.imagen}`
-          }
-          alt={item.nombre}
-        />
+        <img src={item.imagen} alt={item.nombre} />
 
         <div className="overlay">{item.nombre}</div>
       </div>

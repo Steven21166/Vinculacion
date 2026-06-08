@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const multer = require("multer");
-const path = require("path");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
 
 const {
   crearServicio,
@@ -11,14 +12,12 @@ const {
   eliminarServicio,
 } = require("../controller/servicioController");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/uploads/servicios");
-  },
-
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: async (req, file) => ({
+    folder: "servicios",
+    resource_type: "auto",
+  }),
 });
 
 const upload = multer({ storage });

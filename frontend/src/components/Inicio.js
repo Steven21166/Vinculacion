@@ -40,10 +40,7 @@ function Inicio() {
               className="categoria-card"
               onClick={() => irACategoria(cat.nombre)}
             >
-              <img
-                src={`https://vipan-backend.onrender.com/uploads/${cat.imagen}`}
-                alt={cat.nombre}
-              />
+              <img src={cat.imagen} alt={cat.nombre} />
 
               <h3>{cat.nombre}</h3>
             </div>
@@ -61,7 +58,7 @@ function Inicio() {
                 key={temp._id}
                 className="temporada-banner"
                 style={{
-                  backgroundImage: `url(https://vipan-backend.onrender.com${temp.imagen})`,
+                  backgroundImage: `url(${temp.imagen})`,
                 }}
               >
                 <div className="temporada-overlay">

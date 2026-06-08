@@ -7,7 +7,7 @@ const crearTemporada = async (req, res) => {
 
       descripcion: req.body.descripcion,
 
-      imagen: req.file ? `/temporada/${req.file.filename}` : "",
+      imagen: req.file ? req.file.path : "",
     });
 
     await nuevaTemporada.save();
@@ -43,7 +43,7 @@ const editarTemporada = async (req, res) => {
     temporada.descripcion = req.body.descripcion || temporada.descripcion;
 
     if (req.file) {
-      temporada.imagen = `/temporada/${req.file.filename}`;
+      temporada.imagen = req.file.path;
     }
 
     await temporada.save();

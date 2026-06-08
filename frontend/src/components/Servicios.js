@@ -115,8 +115,7 @@ function Servicios() {
 🎥 ${servicio.titulo}
 
 📎 Archivo:
-https://vipan-backend.onrender.com${servicio.archivo}`;
-
+${servicio.archivo}`;
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank");
@@ -128,7 +127,7 @@ https://vipan-backend.onrender.com${servicio.archivo}`;
 🎥 ${servicio.titulo}
 
 📎 Archivo:
-https://vipan-backend.onrender.com${servicio.archivo}`;
+${servicio.archivo}`;
 
     navigator.clipboard.writeText(mensaje);
 
@@ -164,16 +163,10 @@ https://vipan-backend.onrender.com${servicio.archivo}`;
 
               {archivoActual.includes(".mp4") ? (
                 <video controls className="preview-media">
-                  <source
-                    src={`https://vipan-backend.onrender.com${archivoActual}`}
-                  />
+                  <source src={archivoActual} />
                 </video>
               ) : (
-                <img
-                  src={`https://vipan-backend.onrender.com${archivoActual}`}
-                  alt=""
-                  className="preview-media"
-                />
+                <img src={archivoActual} alt="" className="preview-media" />
               )}
             </div>
           )}
@@ -222,13 +215,11 @@ https://vipan-backend.onrender.com${servicio.archivo}`;
                     controls
                     className="media-servicio"
                   >
-                    <source
-                      src={`https://vipan-backend.onrender.com${s.archivo}`}
-                    />
+                    <source src={s.archivo} />
                   </video>
                 ) : (
                   <img
-                    src={`https://vipan-backend.onrender.com${s.archivo}`}
+                    src={s.archivo}
                     alt={s.titulo}
                     className="media-servicio"
                   />

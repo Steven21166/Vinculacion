@@ -28,7 +28,7 @@ categoriaCtrl.createCategoria = async (req, res) => {
 
     const nueva = new Categoria({
       nombre,
-      imagen: req.file ? req.file.filename : null,
+      imagen: req.file ? req.file.path : null,
     });
     await nueva.save();
 
@@ -56,7 +56,7 @@ categoriaCtrl.updateCategoria = async (req, res) => {
 
     // 🔥 SI VIENE NUEVA IMAGEN, SE ACTUALIZA
     if (req.file) {
-      categoria.imagen = req.file.filename;
+      categoria.imagen = req.file.path;
     }
 
     categoria.nombre = nombre;

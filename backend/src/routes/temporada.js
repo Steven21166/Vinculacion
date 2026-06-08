@@ -1,8 +1,10 @@
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
+
 const express = require("express");
 const router = express.Router();
 
 const multer = require("multer");
-const path = require("path");
 
 const {
   crearTemporada,
@@ -11,15 +13,11 @@ const {
   eliminarTemporada,
 } = require("../controller/temporadaController");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/temporada");
-  },
-
-  filename: (req, file, cb) => {
-    const nombre = Date.now() + path.extname(file.originalname);
-
-    cb(null, nombre);
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "temporadas",
+    allowed_formats: ["jpg", "jpeg", "png", "gif"],
   },
 });
 

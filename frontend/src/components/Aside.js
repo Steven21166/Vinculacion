@@ -43,10 +43,7 @@ function Aside() {
           onClick={() => navigate(`/productos#producto-${producto._id}`)}
           style={{ cursor: "pointer" }}
         >
-          <img
-            src={`https://vipan-backend.onrender.com${producto.imagen}`}
-            alt={producto.nombre}
-          />
+          <img src={producto.imagen} alt={producto.nombre} />
           <p>{producto.nombre}</p>
         </div>
       ) : (

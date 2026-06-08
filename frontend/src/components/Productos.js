@@ -86,14 +86,14 @@ function Productos() {
   };
 
   const enviarWhatsApp = (producto) => {
-    const numero = "593987103448"; // 👈 TU NUMERO (sin +)
+    const numero = "593987103448";
 
     const mensaje = `Hola, quiero información sobre este producto:
-      🧁 ${producto.nombre}
-      💲 Precio: ${producto.precioUnidad || "Consultar"}
+🧁 ${producto.nombre}
+💲 Precio: ${producto.precioUnidad || "Consultar"}
 
-      📸 Imagen:
-      https://vipan-backend.onrender.com${producto.imagen}`;
+📸 Imagen:
+${producto.imagen}`;
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
@@ -102,12 +102,12 @@ function Productos() {
 
   const enviarInstagram = (producto) => {
     const mensaje = `Hola, me interesa este producto:
-  
-      🧁 ${producto.nombre}
-      💲 Precio: ${producto.precioUnidad || "Consultar"}
 
-      📸 Imagen:
-      https://vipan-backend.onrender.com${producto.imagen}`;
+🧁 ${producto.nombre}
+💲 Precio: ${producto.precioUnidad || "Consultar"}
+
+📸 Imagen:
+${producto.imagen}`;
 
     navigator.clipboard.writeText(mensaje);
 
@@ -125,10 +125,7 @@ function Productos() {
           )
           .map((p) => (
             <div key={p._id} id={`producto-${p._id}`} className="producto-card">
-              <img
-                src={`https://vipan-backend.onrender.com${p.imagen}`}
-                alt={p.nombre}
-              />
+              <img src={p.imagen} alt={p.nombre} />
 
               <h3>{p.nombre}</h3>
 

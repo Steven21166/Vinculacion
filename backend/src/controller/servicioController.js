@@ -14,7 +14,7 @@ const crearServicio = async (req, res) => {
 
     const nuevoServicio = new Servicio({
       titulo: req.body.titulo,
-      archivo: `/uploads/servicios/${archivo.filename}`,
+      archivo: archivo.path,
       tipo,
     });
 
@@ -50,7 +50,7 @@ const editarServicio = async (req, res) => {
     if (req.file) {
       const tipo = req.file.mimetype.startsWith("video") ? "video" : "imagen";
 
-      datosActualizar.archivo = `/uploads/servicios/${req.file.filename}`;
+      datosActualizar.archivo = req.file.path;
 
       datosActualizar.tipo = tipo;
     }

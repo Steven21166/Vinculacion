@@ -49,9 +49,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
       });
 
       if (productoEditar.imagen) {
-        setImagenPreview(
-          `https://vipan-backend.onrender.com${productoEditar.imagen}`,
-        );
+        setImagenPreview(productoEditar.imagen);
       }
     }
   }, [productoEditar]);
@@ -390,7 +388,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
             {/* 🔥 preview actual */}
             {categoriaSeleccionada?.imagen && !imagenEditar && (
               <img
-                src={`https://vipan-backend.onrender.com/uploads/${categoriaSeleccionada.imagen}`}
+                src={categoriaSeleccionada.imagen}
                 alt="Vista previa"
                 width="100"
               />
