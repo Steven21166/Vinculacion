@@ -33,7 +33,7 @@ app.use("/categorias", require("./routes/categoria"));
 app.use("/servicios", servicioRoutes);
 app.use("/temporadas", require("./routes/temporada"));
 
-// ✅ Ruta de prueba de login con admin/admin123
+// ✅ Ruta de prueba de login
 app.get("/debug/login", async (req, res) => {
   try {
     const user = await Usuario.findOne({ username: "VIPAN" });
