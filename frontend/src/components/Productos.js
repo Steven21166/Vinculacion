@@ -89,10 +89,11 @@ function Productos() {
     const numero = "593987103448";
 
     const mensaje = `Hola, quiero información sobre este producto:
-🧁 ${producto.nombre}
-💲 Precio: ${producto.precioUnidad || "Consultar"}
 
-📸 Imagen:
+Producto: ${producto.nombre}
+Precio: ${producto.precioUnidad || "Consultar"}
+
+Imagen:
 ${producto.imagen}`;
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
@@ -101,12 +102,12 @@ ${producto.imagen}`;
   };
 
   const enviarInstagram = (producto) => {
-    const mensaje = `Hola, me interesa este producto:
+    const mensaje = `Hola, quiero información sobre este producto:
 
-🧁 ${producto.nombre}
-💲 Precio: ${producto.precioUnidad || "Consultar"}
+Producto: ${producto.nombre}
+Precio: ${producto.precioUnidad || "Consultar"}
 
-📸 Imagen:
+Imagen:
 ${producto.imagen}`;
 
     navigator.clipboard.writeText(mensaje);

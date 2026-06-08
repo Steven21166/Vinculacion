@@ -112,9 +112,9 @@ function Servicios() {
 
     const mensaje = `Hola, quiero información sobre este servicio:
 
-🎥 ${servicio.titulo}
+${servicio.titulo}
 
-📎 Archivo:
+Archivo:
 ${servicio.archivo}`;
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
@@ -124,9 +124,9 @@ ${servicio.archivo}`;
   const enviarInstagram = (servicio) => {
     const mensaje = `Hola, me interesa este servicio:
 
-🎥 ${servicio.titulo}
+${servicio.titulo}
 
-📎 Archivo:
+Archivo:
 ${servicio.archivo}`;
 
     navigator.clipboard.writeText(mensaje);

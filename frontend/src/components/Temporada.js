@@ -165,6 +165,32 @@ function Temporada() {
     }
   };
 
+  const enviarWhatsAppTemporada = (temporada) => {
+    const numero = "593987103448";
+
+    const mensaje = `Hola, me interesa el servicio de temporada:
+
+${temporada.nombre}
+
+${temporada.descripcion}`;
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+  };
+
+  const enviarInstagramTemporada = (temporada) => {
+    const mensaje = `Hola, me interesa el servicio de temporada:
+
+${temporada.nombre}
+
+${temporada.descripcion}`;
+
+    navigator.clipboard.writeText(mensaje);
+
+    window.open("https://instagram.com/vipan_riobamba", "_blank");
+  };
+
   return (
     <div className="temporada-container">
       <div className="temporada-box">
@@ -245,6 +271,22 @@ function Temporada() {
                   <h3>{t.nombre}</h3>
 
                   <p>{t.descripcion}</p>
+
+                  <div className="temporada-botones">
+                    <button
+                      className="btn-whatsapp"
+                      onClick={() => enviarWhatsAppTemporada(t)}
+                    >
+                      WhatsApp
+                    </button>
+
+                    <button
+                      className="btn-instagram"
+                      onClick={() => enviarInstagramTemporada(t)}
+                    >
+                      Instagram
+                    </button>
+                  </div>
                 </div>
               </div>
             ),
