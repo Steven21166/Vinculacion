@@ -45,8 +45,40 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>LOGIN FUNCIONA</h1>
+    <div className="login-container">
+      <form onSubmit={handleLogin}>
+        <h2>Acceso Administrador</h2>
+        <img
+          src="/verificacion.png"
+          alt="Verificación"
+          className="img-verificacion"
+        />
+        <h6>
+          Hola, para ingresar al modo administrador ingresa las credenciales
+        </h6>
+
+        <input
+          type="email"
+          placeholder="Correo"
+          value={correo}
+          onChange={(e) => setCorreo(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="submit">Ingresar</button>
+      </form>
+
+      {mostrarAnimacion && (
+        <Animacion video={video} cerrar={() => setMostrarAnimacion(false)} />
+      )}
     </div>
   );
 }
