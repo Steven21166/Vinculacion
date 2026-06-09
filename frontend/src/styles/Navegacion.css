@@ -145,3 +145,9 @@ body {
     align-items: center;
   }
 }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

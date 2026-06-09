@@ -46,57 +46,59 @@ function Navegacion() {
         Pasteleria "VIPAN"
       </h1>
 
-      <button
-        className="hamburger"
-        onClick={() => setMenuAbierto(!menuAbierto)}
-      >
-        ☰
-      </button>
+      <div className="nav-right">
+        <button
+          className="hamburger"
+          onClick={() => setMenuAbierto(!menuAbierto)}
+        >
+          ☰
+        </button>
 
-      <ul className={`nav-links ${menuAbierto ? "active" : ""}`}>
-        <li>
-          <Link to="/">Inicio</Link>
-        </li>
-
-        <li>
-          <Link to="/productos">Productos</Link>
-        </li>
-
-        {/* 🔥 Si NO hay token */}
-        {!token && (
-          <>
-            <li>
-              <Link to="/servicios">Servicios</Link>
-            </li>
-          </>
-        )}
-
-        {/* 🔥 TEMPORADA (admin SIEMPRE, cliente solo si hay datos) */}
-        {(token || temporadas.length > 0) && (
+        <ul className={`nav-links ${menuAbierto ? "active" : ""}`}>
           <li>
-            <Link to="/temporada">Temporada</Link>
+            <Link to="/">Inicio</Link>
           </li>
-        )}
 
-        {/* 🔥 Si SÍ hay token */}
-        {token && (
-          <>
+          <li>
+            <Link to="/productos">Productos</Link>
+          </li>
+
+          {/* 🔥 Si NO hay token */}
+          {!token && (
+            <>
+              <li>
+                <Link to="/servicios">Servicios</Link>
+              </li>
+            </>
+          )}
+
+          {/* 🔥 TEMPORADA (admin SIEMPRE, cliente solo si hay datos) */}
+          {(token || temporadas.length > 0) && (
             <li>
-              <Link to="/admin/productos">Añadir Producto</Link>
+              <Link to="/temporada">Temporada</Link>
             </li>
+          )}
 
-            <li>
-              <Link to="/admin/servicios">Servicios</Link>
-            </li>
+          {/* 🔥 Si SÍ hay token */}
+          {token && (
+            <>
+              <li>
+                <Link to="/admin/productos">Añadir Producto</Link>
+              </li>
 
-            <li onClick={handleLogout} style={{ cursor: "pointer" }}>
-              Cerrar Sesión
-            </li>
-          </>
-        )}
-      </ul>
-      <div className="traductor-li">
-        <GoogleTranslate />
+              <li>
+                <Link to="/admin/servicios">Servicios</Link>
+              </li>
+
+              <li onClick={handleLogout} style={{ cursor: "pointer" }}>
+                Cerrar Sesión
+              </li>
+            </>
+          )}
+        </ul>
+        <div className="traductor-li">
+          <GoogleTranslate />
+        </div>
       </div>
       {mostrarAnimacion && (
         <Animacion video={video} cerrar={() => setMostrarAnimacion(false)} />
