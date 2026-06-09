@@ -71,11 +71,9 @@ function AgregarProducto({ productoEditar, cerrar }) {
     const file = e.target.files[0];
     if (!file) return;
 
-    // 🔥 PREVIEW
     const preview = URL.createObjectURL(file);
     setImagenPreview(preview);
 
-    // 🔥 SUBIR AUTOMÁTICO
     const formData = new FormData();
     formData.append("imagen", file);
 
@@ -90,8 +88,15 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
       const data = await res.json();
 
+      console.log("Respuesta upload:", data);
+
       if (res.ok) {
-        setForm({ ...form, imagen: data.imageUrl });
+        console.log("URL Cloudinary:", data.imageUrl);
+
+        setForm((prev) => ({
+          ...prev,
+          imagen: data.imageUrl,
+        }));
       } else {
         alert("Error al subir imagen");
       }
@@ -103,6 +108,8 @@ function AgregarProducto({ productoEditar, cerrar }) {
   // 🔥 CREAR PRODUCTO
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log("FORM ENVIADO:", form);
 
     const token = localStorage.getItem("token");
 
