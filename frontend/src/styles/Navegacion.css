@@ -106,3 +106,42 @@ body {
 .skiptranslate iframe {
   display: none !important;
 }
+
+/* Botón hamburguesa oculto en PC */
+.hamburger {
+  display: none;
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    color: #f2a007;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .traductor-li {
+    display: flex;
+    align-items: center;
+  }
+}

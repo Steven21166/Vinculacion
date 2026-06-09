@@ -9,6 +9,7 @@ function Navegacion() {
   const [mostrarAnimacion, setMostrarAnimacion] = useState(false);
   const [video, setVideo] = useState("");
   const [temporadas, setTemporadas] = useState([]);
+  const [menuAbierto, setMenuAbierto] = useState(false);
 
   const handleLogout = () => {
     const token = localStorage.getItem("token");
@@ -45,7 +46,14 @@ function Navegacion() {
         Pasteleria "VIPAN"
       </h1>
 
-      <ul className="nav-links">
+      <button
+        className="hamburger"
+        onClick={() => setMenuAbierto(!menuAbierto)}
+      >
+        ☰
+      </button>
+
+      <ul className={`nav-links ${menuAbierto ? "active" : ""}`}>
         <li>
           <Link to="/">Inicio</Link>
         </li>
@@ -86,11 +94,10 @@ function Navegacion() {
             </li>
           </>
         )}
-
-        <li className="traductor-li">
-          <GoogleTranslate />
-        </li>
       </ul>
+      <div className="traductor-li">
+        <GoogleTranslate />
+      </div>
       {mostrarAnimacion && (
         <Animacion video={video} cerrar={() => setMostrarAnimacion(false)} />
       )}
