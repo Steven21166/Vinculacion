@@ -16,15 +16,10 @@ const { upload } = require("../middlewares/upload");
 router.get("/ofertas", getOfertas);
 
 // 🔥 PONER AQUÍ
-router.post("/upload-image", upload.single("imagen"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({
-      error: "No se ha subido ninguna imagen",
-    });
-  }
-
-  res.status(200).json({
-    imageUrl: req.file.path,
+router.post("/upload-image", (req, res) => {
+  res.json({
+    ok: true,
+    mensaje: "upload funcionando",
   });
 });
 
