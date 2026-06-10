@@ -20,10 +20,28 @@ console.log("=================================");
 router.get("/ofertas", getOfertas);
 
 // 🔥 PONER AQUÍ
-router.post("/upload-image", (req, res) => {
-  res.status(200).json({
-    ok: true,
-    version: "999999",
+router.post("/upload-image", upload.single("imagen"), (req, res) => {
+  console.log("UPLOAD RECIBIDO");
+
+  if (!req.file) {
+    return res.status(400).json({
+      error: "No se recibió archivo",
+    });
+  }
+
+  console.log(req.file);
+
+  res.json({
+    imageUrl: req.file.path,
+  });
+});
+
+router.use((err, req, res, next) => {
+  console.error("ERROR UPLOAD:");
+  console.error(err);
+
+  res.status(500).json({
+    error: err.message,
   });
 });
 
