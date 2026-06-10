@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import imageCompression from "browser-image-compression";
 import "../styles/AgregarProducto.css";
 import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
 import Animacion from "./Animacion";
@@ -69,15 +70,37 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
   const handleImagenChange = async (e) => {
     const file = e.target.files[0];
+
     if (!file) return;
 
-    const preview = URL.createObjectURL(file);
-    setImagenPreview(preview);
-
-    const formData = new FormData();
-    formData.append("imagen", file);
-
     try {
+      console.log(
+        "Tamaño original:",
+        (file.size / 1024 / 1024).toFixed(2),
+        "MB",
+      );
+
+      const options = {
+        maxSizeMB: 3,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+        initialQuality: 0.9,
+      };
+
+      const compressedFile = await imageCompression(file, options);
+
+      console.log(
+        "Tamaño comprimido:",
+        (compressedFile.size / 1024 / 1024).toFixed(2),
+        "MB",
+      );
+
+      const preview = URL.createObjectURL(compressedFile);
+      setImagenPreview(preview);
+
+      const formData = new FormData();
+      formData.append("imagen", compressedFile);
+
       const res = await fetch(
         "https://vipan-backend.onrender.com/productos/upload-image",
         {
@@ -91,17 +114,16 @@ function AgregarProducto({ productoEditar, cerrar }) {
       console.log("Respuesta upload:", data);
 
       if (res.ok) {
-        console.log("URL Cloudinary:", data.imageUrl);
-
         setForm((prev) => ({
           ...prev,
           imagen: data.imageUrl,
         }));
       } else {
-        alert("Error al subir imagen");
+        alert(data.error || "Error al subir imagen");
       }
     } catch (error) {
       console.error(error);
+      alert("Error al procesar imagen");
     }
   };
 
@@ -278,7 +300,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
         </div>
 
         {/* 🔥 IMAGEN */}
-        <input type="file" onChange={handleImagenChange} />
+        <input type="file" accept="image/*" onChange={handleImagenChange} />
 
         {/* Mostrar preview */}
         {imagenPreview && <img src={imagenPreview} alt="preview" width="120" />}
