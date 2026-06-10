@@ -89,11 +89,23 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
       const compressedFile = await imageCompression(file, options);
 
+      // 🔍 Logs de diagnóstico
+      console.log("========== IMAGEN ==========");
+      console.log("Tipo original:", file.type);
+      console.log("Tipo comprimido:", compressedFile.type);
+      console.log("Nombre original:", file.name);
+      console.log("Nombre comprimido:", compressedFile.name);
+      console.log(
+        "Tamaño original:",
+        (file.size / 1024 / 1024).toFixed(2),
+        "MB",
+      );
       console.log(
         "Tamaño comprimido:",
         (compressedFile.size / 1024 / 1024).toFixed(2),
         "MB",
       );
+      console.log("============================");
 
       const preview = URL.createObjectURL(compressedFile);
       setImagenPreview(preview);
@@ -126,11 +138,6 @@ function AgregarProducto({ productoEditar, cerrar }) {
       alert("Error al procesar imagen");
     }
   };
-
-  const compressedFile = await imageCompression(file, options);
-
-console.log("Tipo original:", file.type);
-console.log("Tipo comprimido:", compressedFile.type);
 
   // 🔥 CREAR PRODUCTO
   const handleSubmit = async (e) => {
