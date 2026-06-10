@@ -13,13 +13,17 @@ const {
 const { verificarToken, verificarAdmin } = require("../middlewares/auth");
 const { upload } = require("../middlewares/upload");
 
+console.log("=================================");
+console.log("RUTA PRODUCTOS NUEVA CARGADA");
+console.log("=================================");
+
 router.get("/ofertas", getOfertas);
 
 // 🔥 PONER AQUÍ
 router.post("/upload-image", (req, res) => {
-  res.json({
+  res.status(200).json({
     ok: true,
-    mensaje: "upload funcionando",
+    version: "999999",
   });
 });
 
