@@ -27,13 +27,11 @@ router
   .put(verificarToken, verificarAdmin, updateProduct);
 
 // ✅ Ruta corregida para devolver URL completa
-router.post("/upload-image", upload.single("imagen"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: "No se ha subido ninguna imagen" });
-  }
+router.post("/upload-image", (req, res) => {
+  console.log("ENTRO A /upload-image");
 
   res.status(200).json({
-    imageUrl: req.file.path,
+    mensaje: "Ruta funcionando",
   });
 });
 
