@@ -31,27 +31,10 @@ const storagePerfiles = multer.diskStorage({
 
 // Validación del tipo de archivo
 const fileFilter = function (req, file, cb) {
-  console.log("===============");
-  console.log("originalname:", file.originalname);
-  console.log("mimetype:", file.mimetype);
-  console.log("===============");
+  console.log("ARCHIVO RECIBIDO");
+  console.log(file);
 
-  const ext = path.extname(file.originalname).toLowerCase();
-  const mime = file.mimetype;
-
-  const esExtensionValida = EXTENSIONES_PERMITIDAS.test(ext);
-  const esMimeValido = EXTENSIONES_PERMITIDAS.test(mime);
-
-  console.log("ext:", ext);
-  console.log("mime:", mime);
-  console.log("extension valida:", esExtensionValida);
-  console.log("mime valido:", esMimeValido);
-
-  if (esExtensionValida && esMimeValido) {
-    cb(null, true);
-  } else {
-    cb(new Error("Solo se permiten imágenes (jpeg, jpg, png, gif)"));
-  }
+  cb(null, true);
 };
 
 const upload = multer({
