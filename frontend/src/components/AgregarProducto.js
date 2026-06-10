@@ -127,6 +127,11 @@ function AgregarProducto({ productoEditar, cerrar }) {
     }
   };
 
+  const compressedFile = await imageCompression(file, options);
+
+console.log("Tipo original:", file.type);
+console.log("Tipo comprimido:", compressedFile.type);
+
   // 🔥 CREAR PRODUCTO
   const handleSubmit = async (e) => {
     e.preventDefault();
