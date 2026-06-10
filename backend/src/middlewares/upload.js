@@ -4,15 +4,12 @@ const cloudinary = require("../config/cloudinary");
 const multer = require("multer");
 const path = require("path");
 
-// Extensiones permitidas
-const EXTENSIONES_PERMITIDAS = /jpeg|jpg|png|gif/;
-
 // Configuración de almacenamiento
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "productos",
-    allowed_formats: ["jpg", "jpeg", "png", "gif"],
+    allowed_formats: ["jpg", "jpeg", "png", "gif", "webp"],
   },
 });
 
@@ -31,10 +28,19 @@ const storagePerfiles = multer.diskStorage({
 
 // Validación del tipo de archivo
 const fileFilter = function (req, file, cb) {
-  console.log("ARCHIVO RECIBIDO");
-  console.log(file);
+  const tiposPermitidos = [
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
+    "image/gif",
+    "image/webp",
+  ];
 
-  cb(null, true);
+  if (tiposPermitidos.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error(`Solo se permiten imágenes. Tipo recibido: ${file.mimetype}`));
+  }
 };
 
 const upload = multer({
