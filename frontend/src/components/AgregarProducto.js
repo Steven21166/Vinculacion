@@ -16,7 +16,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
   const obtenerCategorias = async () => {
     try {
-      const res = await fetch("https://vipan-backend.onrender.com/categorias");
+      const res = await fetch("https://api.vipanpasteleria.com/categorias");
       const data = await res.json();
       setCategorias(data);
     } catch (error) {
@@ -114,7 +114,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
       formData.append("imagen", compressedFile);
 
       const res = await fetch(
-        "https://vipan-backend.onrender.com/productos/upload-image",
+        "https://api.vipanpasteleria.com/productos/upload-image",
         {
           method: "POST",
           body: formData,
@@ -149,8 +149,8 @@ function AgregarProducto({ productoEditar, cerrar }) {
 
     try {
       const url = productoEditar
-        ? `https://vipan-backend.onrender.com/productos/${productoEditar._id}`
-        : "https://vipan-backend.onrender.com/productos";
+        ? `https://api.vipanpasteleria.com/productos/${productoEditar._id}`
+        : "https://api.vipanpasteleria.com/productos";
 
       const method = productoEditar ? "PUT" : "POST";
 
@@ -194,7 +194,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
     formData.append("nombre", nuevaCategoria);
     formData.append("imagen", imagenCategoria);
 
-    await fetch("https://vipan-backend.onrender.com/categorias", {
+    await fetch("https://api.vipanpasteleria.com/categorias", {
       method: "POST",
       body: formData, // 👈 CLAVE
     });
@@ -215,7 +215,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
     }
 
     const res = await fetch(
-      `https://vipan-backend.onrender.com/categorias/${id}`,
+      `https://api.vipanpasteleria.com/categorias/${id}`,
       {
         method: "PUT",
         body: formData,
@@ -245,7 +245,7 @@ function AgregarProducto({ productoEditar, cerrar }) {
     if (!categoriaEliminar) return;
 
     await fetch(
-      `https://vipan-backend.onrender.com/categorias/${categoriaEliminar}`,
+      `https://api.vipanpasteleria.com/categorias/${categoriaEliminar}`,
       {
         method: "DELETE",
       },

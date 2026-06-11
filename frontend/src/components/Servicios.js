@@ -25,7 +25,7 @@ function Servicios() {
   const [servicioEliminar, setServicioEliminar] = useState(null);
 
   const obtenerServicios = async () => {
-    const res = await fetch("https://vipan-backend.onrender.com/servicios");
+    const res = await fetch("https://api.vipanpasteleria.com/servicios");
 
     const data = await res.json();
 
@@ -48,11 +48,11 @@ function Servicios() {
     }
 
     try {
-      let url = "https://vipan-backend.onrender.com/servicios";
+      let url = "https://api.vipanpasteleria.com/servicios";
       let method = "POST";
 
       if (editando) {
-        url = `https://vipan-backend.onrender.com/servicios/${idEditar}`;
+        url = `https://api.vipanpasteleria.com/servicios/${idEditar}`;
         method = "PUT";
       }
 
@@ -92,7 +92,7 @@ function Servicios() {
 
     try {
       await fetch(
-        `https://vipan-backend.onrender.com/servicios/${servicioEliminar}`,
+        `https://api.vipanpasteleria.com/servicios/${servicioEliminar}`,
         {
           method: "DELETE",
         },

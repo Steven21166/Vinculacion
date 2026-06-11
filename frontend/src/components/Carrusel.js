@@ -21,13 +21,13 @@ function Carrusel() {
   ];
 
   useEffect(() => {
-    fetch("https://vipan-backend.onrender.com/categorias")
+    fetch("https://api.vipanpasteleria.com/categorias")
       .then((res) => res.json())
       .then((data) => setCategorias(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://vipan-backend.onrender.com/temporadas")
+    fetch("https://api.vipanpasteleria.com/temporadas")
       .then((res) => res.json())
       .then((data) => setTemporadas(data));
   }, []);

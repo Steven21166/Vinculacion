@@ -23,7 +23,7 @@ function Productos() {
   const [productoEliminar, setProductoEliminar] = useState(null);
 
   useEffect(() => {
-    fetch("https://vipan-backend.onrender.com/productos")
+    fetch("https://api.vipanpasteleria.com/productos")
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error(err));
@@ -58,7 +58,7 @@ function Productos() {
 
     try {
       const res = await fetch(
-        `https://vipan-backend.onrender.com/productos/${productoEliminar}`,
+        `https://api.vipanpasteleria.com/productos/${productoEliminar}`,
         {
           method: "DELETE",
           headers: {

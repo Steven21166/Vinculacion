@@ -26,7 +26,7 @@ function Navegacion() {
   };
 
   useEffect(() => {
-    fetch("https://vipan-backend.onrender.com/temporadas")
+    fetch("https://api.vipanpasteleria.com/temporadas")
       .then((res) => res.json())
       .then((data) => setTemporadas(data))
       .catch((err) => console.log(err));

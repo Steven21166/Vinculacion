@@ -37,7 +37,7 @@ function Temporada() {
   // 🔥 OBTENER TEMPORADAS
   const obtenerTemporadas = async () => {
     try {
-      const res = await fetch("https://vipan-backend.onrender.com/temporadas");
+      const res = await fetch("https://api.vipanpasteleria.com/temporadas");
 
       const data = await res.json();
 
@@ -87,12 +87,12 @@ function Temporada() {
     }
 
     try {
-      let url = "https://vipan-backend.onrender.com/temporadas";
+      let url = "https://api.vipanpasteleria.com/temporadas";
 
       let method = "POST";
 
       if (editando) {
-        url = `https://vipan-backend.onrender.com/temporadas/${idEditar}`;
+        url = `https://api.vipanpasteleria.com/temporadas/${idEditar}`;
 
         method = "PUT";
       }
@@ -149,7 +149,7 @@ function Temporada() {
 
     try {
       await fetch(
-        `https://vipan-backend.onrender.com/temporadas/${temporadaEliminar}`,
+        `https://api.vipanpasteleria.com/temporadas/${temporadaEliminar}`,
         {
           method: "DELETE",
         },

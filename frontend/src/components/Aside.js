@@ -9,7 +9,7 @@ function Aside() {
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    fetch("https://vipan-backend.onrender.com/productos/ofertas")
+    fetch("https://api.vipanpasteleria.com/productos/ofertas")
       .then((res) => res.json())
       .then((data) => setOfertas(Array.isArray(data) ? data : []))
       .catch((err) => console.error(err));
